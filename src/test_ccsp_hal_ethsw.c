@@ -42,8 +42,6 @@
 
 char *mac;
 
-int MaxEthPort = 0;
-
 extern int init_ethsw_hal_init(void);
 
 /**
