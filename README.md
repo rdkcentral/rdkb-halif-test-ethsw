@@ -13,7 +13,7 @@
 
 ## Description
 
-This repository contains the Unit Test Suites (L1) for EthSw `HAL`.
+This repository contains the Unit Test Suites (L1) for EthSW `HAL`.
 
 ## Reference Documents
 
