@@ -2357,7 +2357,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalExtSw_getEthWanEnable(void)
     UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive_1_CcspHalExtSw_getEthWanEnable...");
 
     BOOLEAN wanStatus = 0;
-    v_secure_system("echo \"enable\" > /nvram/ethwan_interface");
+    system("echo \"enable\" > /nvram/ethwan_interface");
 
     UT_LOG("Invoking CcspHalExtSw_getEthWanEnable with enabled EthernetWAN.");
     int status = CcspHalExtSw_getEthWanEnable(&wanStatus);
@@ -2396,7 +2396,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalExtSw_getEthWanEnable(void)
     UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive_2_CcspHalExtSw_getEthWanEnable...");
 
     BOOLEAN wanStatus = 1;
-    v_secure_system("echo \"disable\" > /nvram/ethwan_interface");
+    system("echo \"disable\" > /nvram/ethwan_interface");
 
     UT_LOG("Invoking CcspHalExtSw_getEthWanEnable with disabled EthernetWAN.");
     int status = CcspHalExtSw_getEthWanEnable(&wanStatus);
@@ -2727,7 +2727,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalExtSw_getEthWanPort(void)
 {
     UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive_1_CcspHalExtSw_getEthWanPort...");
     
-     v_secure_system("echo \"ethwan\" > /nvram/ethwan_interface");
+     system("echo \"ethwan\" > /nvram/ethwan_interface");
     
     UINT port = 1;
 
@@ -3152,7 +3152,7 @@ void test_l1_ccsp_hal_ethsw_positive1_GWP_GetEthWanLinkStatus()
 {
     UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive_1_GWP_GetEthWanLinkStatus...");
     
-     v_secure_system("echo \"erouter0\" > /nvram/ethwan_interface");
+     system("echo \"erouter0\" > /nvram/ethwan_interface");
 
     // Invoking GWP_GetEthWanLinkStatus
     UT_LOG("Invoking GWP_GetEthWanLinkStatus, EthWAN Link Status UP");
@@ -3187,7 +3187,7 @@ void test_l1_ccsp_hal_ethsw_positive2_GWP_GetEthWanLinkStatus()
 {
     UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive_2_GWP_GetEthWanLinkStatus...");
     
-     v_secure_system("echo \"\" > /nvram/ethwan_interface");
+     system("echo \"\" > /nvram/ethwan_interface");
 
     // Invoking GWP_GetEthWanLinkStatus
     UT_LOG("Invoking GWP_GetEthWanLinkStatus, EthWAN Link Status DOWN");
