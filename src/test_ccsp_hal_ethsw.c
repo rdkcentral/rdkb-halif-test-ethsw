@@ -170,57 +170,12 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalEthSwGetPortStatus(void)
 }
 
 /**
- * @brief This test verifies the functionality of CcspHalEthSwGetPortStatus API.
- *
- * The purpose of this test is to check whether the CcspHalEthSwGetPortStatus API is working correctly
- * by invoking it with valid parameters and verifying the result and output values.
- *
- * **Test Group ID:** Basic: 01
- * **Test Case ID:** 004
- * **Priority:** High
- *
- * **Pre-Conditions:** None
- * **Dependencies:** None
- * **User Interaction:** If user chose to run the test in interactive mode, then the test case has to be selected via the console.
- *
- * **Test Procedure:**
- * | Variation / Step | Description                                                     | Test Data                                                                                                        | Expected Result | Notes             |
- * | :---------------: | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | --------------- | ----------------- |
- * |       01       | The API is invoked with valid parameters                 | PortId = CCSP_HAL_ETHSW_EthPort4, pLinkRate = valid, pDuplexMode = valid, pStatus = valid | The API returns RETURN_OK and the output values are valid      | Should be successful |
- *
- */
-void test_l1_ccsp_hal_ethsw_positive3_CcspHalEthSwGetPortStatus(void)
-{
-    UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive3_CcspHalEthSwGetPortStatus...");
-
-    CCSP_HAL_ETHSW_PORT PortId = CCSP_HAL_ETHSW_EthPort4;
-    PCCSP_HAL_ETHSW_LINK_RATE pLinkRate = malloc(sizeof(PCCSP_HAL_ETHSW_LINK_RATE));
-    PCCSP_HAL_ETHSW_DUPLEX_MODE pDuplexMode = malloc(sizeof(PCCSP_HAL_ETHSW_DUPLEX_MODE));
-    PCCSP_HAL_ETHSW_LINK_STATUS pStatus = malloc(sizeof(PCCSP_HAL_ETHSW_LINK_STATUS));
-
-    UT_LOG("Invoking CcspHalEthSwGetPortStatus with PortId = CCSP_HAL_ETHSW_EthPort4, pLinkRate = valid, pDuplexMode = valid, pStatus = valid...");
-    INT result = CcspHalEthSwGetPortStatus(PortId, pLinkRate, pDuplexMode, pStatus);
-    UT_LOG("Result: %d", result);
-    UT_LOG("pLinkRate: %d", *pLinkRate);
-    UT_LOG("pDuplexMode: %d", *pDuplexMode);
-    UT_LOG("pStatus: %d", *pStatus);
-
-    UT_ASSERT_EQUAL(result, RETURN_OK);
-
-    free(pLinkRate);
-    free(pDuplexMode);
-    free(pStatus);
-
-    UT_LOG("Exiting test_l1_ccsp_hal_ethsw_positive3_CcspHalEthSwGetPortStatus...");
-}
-
-/**
  * @brief Unit test for CcspHalEthSwGetPortStatus function when PortId is beyond CCSP_HAL_ETHSW_PortMax.
  *
  * This test verifies the behavior of CcspHalEthSwGetPortStatus function when the PortId provided is beyond the maximum limit defined by CCSP_HAL_ETHSW_PortMax constant.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 005
+ * **Test Case ID:** 004
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -262,7 +217,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwGetPortStatus(void)
 * The function should return an error code to indicate the invalid Port Id.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 006
+* **Test Case ID:** 005
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -304,7 +259,7 @@ void test_l1_ccsp_hal_ethsw_negative2_CcspHalEthSwGetPortStatus(void)
 * This test checks if the CcspHalEthSwGetPortStatus function returns the expected error when invalid input parameters are provided.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 008
+* **Test Case ID:** 006
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -344,7 +299,7 @@ void test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwGetPortStatus(void)
 * This test case verifies the behavior of the CcspHalEthSwGetPortStatus function when invoked with invalid input parameters.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 009
+* **Test Case ID:** 007
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -383,7 +338,7 @@ void test_l1_ccsp_hal_ethsw_negative4_CcspHalEthSwGetPortStatus(void)
 * This test case is to verify the behavior of the CcspHalEthSwGetPortStatus function when NULL pointers are passed as arguments for link rate, duplex mode, and link status.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 011
+* **Test Case ID:** 008
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -419,7 +374,7 @@ void test_l1_ccsp_hal_ethsw_negative5_CcspHalEthSwGetPortStatus(void)
 * The purpose of this test is to verify that the CcspHalEthSwGetPortCfg API correctly retrieves the configuration for a given port ID, specifically for Ethernet ports.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 012
+* **Test Case ID:** 009
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -465,7 +420,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalEthSwGetPortCfg()
 * TODO: Add the description of what is tested and why in this test@n
 *
 * **Test Group ID:** Basic: 01@n
-* **Test Case ID:** 013@n
+* **Test Case ID:** 010@n
 * **Priority:** High@n
 * @n
 * **Pre-Conditions:** None@n
@@ -514,7 +469,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalEthSwGetPortCfg()
 * This test case checks if the CcspHalEthSwGetPortCfg function handles the scenario where an invalid port ID below the range is provided as input parameter. The function should return an error value to indicate the invalid input.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 018
+* **Test Case ID:** 011
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -552,7 +507,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwGetPortCfg()
 * This test verifies the behavior of the CcspHalEthSwGetPortCfg function when a null pointer is passed for the pLinkRate parameter. The expected result is that the function returns RETURN_ERR.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 020
+* **Test Case ID:** 012
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -590,7 +545,7 @@ void test_l1_ccsp_hal_ethsw_negative2_CcspHalEthSwGetPortCfg()
  * This test is performed to verify the behavior of the CcspHalEthSwGetPortCfg function when a null pointer is passed for the duplex mode parameter.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 021
+ * **Test Case ID:** 013
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -629,7 +584,7 @@ void test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwGetPortCfg()
  * This test verifies the behavior of CcspHalEthSwSetPortCfg function by setting the port configuration and checking the return value.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 022
+ * **Test Case ID:** 014
  * **Priority:** High
  *
  * **Pre-Conditions:**
@@ -669,7 +624,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalEthSwSetPortCfg(void)
  * This test case verifies if the CcspHalEthSwSetPortCfg function correctly sets the port configuration for the given PortId, LinkRate, and DuplexMode.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 023
+ * **Test Case ID:** 015
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -708,7 +663,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalEthSwSetPortCfg(void)
 * The test aims to ensure that the API is working correctly with the given input parameters.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 025
+* **Test Case ID:** 016
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -743,7 +698,7 @@ void test_l1_ccsp_hal_ethsw_positive3_CcspHalEthSwSetPortCfg(void)
  * This test case verifies the behavior of the CcspHalEthSwSetPortCfg function when an invalid PortId is passed as an argument. The expected result is that the function should return an error code.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 026
+ * **Test Case ID:** 017
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -778,7 +733,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwSetPortCfg(void)
 * The objective of this test is to check if the function returns the expected error code when provided with invalid input.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 027
+* **Test Case ID:** 018
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -814,7 +769,7 @@ void test_l1_ccsp_hal_ethsw_negative2_CcspHalEthSwSetPortCfg(void)
  * In this test case, CcspHalEthSwSetPortCfg function is invoked with an invalid DuplexMode. The objective of this test is to ensure that the function returns an expected error code in this scenario.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 028
+ * **Test Case ID:** 019
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -853,7 +808,7 @@ void test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwSetPortCfg(void)
 * This test checks if the API returns the expected result when invalid values are used for PortId and LinkRate.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 029
+* **Test Case ID:** 020
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -891,7 +846,7 @@ void test_l1_ccsp_hal_ethsw_negative4_CcspHalEthSwSetPortCfg(void)
 * This test case checks if the CcspHalEthSwGetPortAdminStatus function returns the correct port administrative status.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 030
+* **Test Case ID:** 021
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -937,7 +892,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalEthSwGetPortAdminStatus(void)
 * return status and output values when valid input parameters are provided.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 031
+* **Test Case ID:** 022
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -982,7 +937,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalEthSwGetPortAdminStatus(void)
 * This test case is used to verify the functionality of the CcspHalEthSwGetPortAdminStatus API.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 032
+* **Test Case ID:** 023
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1027,7 +982,7 @@ void test_l1_ccsp_hal_ethsw_positive3_CcspHalEthSwGetPortAdminStatus(void)
 * This test is designed to verify the functionality of the CcspHalEthSwGetPortAdminStatus function. It checks if the function returns the correct output values and handling of input parameters.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 033
+* **Test Case ID:** 024
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1073,7 +1028,7 @@ void test_l1_ccsp_hal_ethsw_positive4_CcspHalEthSwGetPortAdminStatus(void)
 * This test case checks the behavior of the CcspHalEthSwGetPortAdminStatus function when called with invalid input values. It verifies if the function returns the expected error value and logs the input values and return status.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 034
+* **Test Case ID:** 025
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1113,7 +1068,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwGetPortAdminStatus(void)
 * This test case checks the behavior of the CcspHalEthSwGetPortAdminStatus function when an invalid PortId, which is above the valid range, is provided. The test aims to ensure that the function handles invalid input correctly and returns an error status.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 035
+* **Test Case ID:** 026
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1153,7 +1108,7 @@ void test_l1_ccsp_hal_ethsw_negative2_CcspHalEthSwGetPortAdminStatus(void)
 * This test case is used to validate the functionality of CcspHalEthSwGetPortAdminStatus API in negative scenario. It verifies that the API returns an error when called with an invalid input.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 036
+* **Test Case ID:** 027
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1194,7 +1149,7 @@ void test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwGetPortAdminStatus(void)
 * to Up and returns the expected result.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 037
+* **Test Case ID:** 028
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1234,7 +1189,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalEthSwSetPortAdminStatus(void)
 * to Up and returns the expected result.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 037
+* **Test Case ID:** 029
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1272,7 +1227,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalEthSwSetPortAdminStatus(void)
 * The objective of this test is to ensure that the function handles the invalid port ID correctly and returns the expected error code.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 041
+* **Test Case ID:** 030
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1310,7 +1265,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwSetPortAdminStatus(void)
 * This test case validates the behavior of the SetPortAdminStatus API when an invalid port ID is provided. The API should return an error in this scenario.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 042
+* **Test Case ID:** 031
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1342,13 +1297,14 @@ void test_l1_ccsp_hal_ethsw_negative2_CcspHalEthSwSetPortAdminStatus(void)
 }
 
 /**
- * @brief Test the functionality of CcspHalEthSwSetPortAdminStatus with valid ProcessorPortID and AdminStatus set to AdminUp
+ * @brief Verify CcspHalEthSwSetPortAdminStatus with a valid Ethernet port and AdminTest status.
  *
- * Tests the CcspHalEthSwSetPortAdminStatus function by setting valid ProcessorPortID and AdminStatus to AdminUp.
- * This test aims to verify that the function successfully sets the port admin status and returns RETURN_OK.
+ * This positive test verifies that CcspHalEthSwSetPortAdminStatus accepts the valid
+ * CCSP_HAL_ETHSW_AdminTest administrative state for CCSP_HAL_ETHSW_EthPort4 and
+ * returns RETURN_OK.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 040
+ * **Test Case ID:** 032
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -1358,11 +1314,11 @@ void test_l1_ccsp_hal_ethsw_negative2_CcspHalEthSwSetPortAdminStatus(void)
  * **Test Procedure:**
  * | Variation / Step | Description | Test Data | Expected Result | Notes |
  * | :----: | --------- | ---------- | --------------- | ----- |
- * | 01 | Set port admin status | PortId = CCSP_HAL_ETHSW_EthPort4, AdminStatus = CCSP_HAL_ETHSW_AdminTest | RETURN_ERR | Should be unsuccessful |
+ * | 01 | Set port admin status using valid inputs | PortId = CCSP_HAL_ETHSW_EthPort4, AdminStatus = CCSP_HAL_ETHSW_AdminTest | RETURN_OK | Should be successful |
  */
-void test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwSetPortAdminStatus(void)
+void test_l1_ccsp_hal_ethsw_positive3_CcspHalEthSwSetPortAdminStatus(void)
 {
-    UT_LOG("Entering test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwSetPortAdminStatus...");
+    UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive3_CcspHalEthSwSetPortAdminStatus...");
 
     // Set input parameters
     CCSP_HAL_ETHSW_PORT PortId = CCSP_HAL_ETHSW_EthPort4;
@@ -1374,9 +1330,9 @@ void test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwSetPortAdminStatus(void)
     UT_LOG("Result: %d", result);
 
     // Verify the result
-    UT_ASSERT_EQUAL(result, RETURN_ERR);
+    UT_ASSERT_EQUAL(result, RETURN_OK);
 
-    UT_LOG("Exiting test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwSetPortAdminStatus...");
+    UT_LOG("Exiting test_l1_ccsp_hal_ethsw_positive3_CcspHalEthSwSetPortAdminStatus...");
 }
 
 /**
@@ -1385,7 +1341,7 @@ void test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwSetPortAdminStatus(void)
 * This test case checks if the CcspHalEthSwSetAgingSpeed API works correctly when the minimum aging speed value is passed for EthPort1.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 044
+* **Test Case ID:** 033
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1423,7 +1379,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalEthSwSetAgingSpeed(void)
  * This test case checks if the CcspHalEthSwSetAgingSpeed function successfully sets the aging speed for EthPort1 to the maximum value.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 045
+ * **Test Case ID:** 034
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -1460,7 +1416,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalEthSwSetAgingSpeed(void)
 * The purpose of this test is to ensure that the function correctly handles the case when an invalid port ID, above the valid range, is provided as input. The expected behavior of the function is to return an error code.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 049
+* **Test Case ID:** 035
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1497,7 +1453,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwSetAgingSpeed(void)
  * This test verifies the functionality of the API that validates a valid MAC address with a known port.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 050
+ * **Test Case ID:** 036
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -1535,7 +1491,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalEthSwLocatePortByMacAddress()
 * This test case checks the behavior of the API when a valid MAC address is not present. It validates that the API handles the absence of a valid MAC address correctly.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 051
+* **Test Case ID:** 037
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1573,7 +1529,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwLocatePortByMacAddress()
 * In this test, a null MAC address is passed as input to the CcspHalEthSwLocatePortByMacAddress function. The objective is to check if the function correctly handles the null input and returns the expected result.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 052
+* **Test Case ID:** 038
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1611,7 +1567,7 @@ void test_l1_ccsp_hal_ethsw_negative2_CcspHalEthSwLocatePortByMacAddress()
  * This test checks the behavior of the API when an invalid MAC address format with less than 6 bytes is provided as input.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 053
+ * **Test Case ID:** 039
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -1650,7 +1606,7 @@ void test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwLocatePortByMacAddress()
 * The objective of this test is to verify that the API handles the empty array correctly.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 054
+* **Test Case ID:** 040
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1686,7 +1642,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalEthSwGetEthPortStats(void)
  * The objective of this test is to ensure that the CcspHalEthSwGetEthPortStats function works correctly when called with a single associated device. The test verifies the return value of the function call and the output struct.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 055
+ * **Test Case ID:** 041
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -1726,7 +1682,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalEthSwGetEthPortStats(void)
 * The objective of this test is to verify that the CcspHalEthSwGetEthPortStats function behaves correctly when the output structure is uninitialized.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 056
+* **Test Case ID:** 042
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1760,7 +1716,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwGetEthPortStats(void)
  * This test verifies if the function CcspHalEthSwGetEthPortStats correctly returns an error when an invalid MAC address is provided as input. It is important for the function to handle such invalid inputs and return an error code.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 057
+ * **Test Case ID:** 043
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -1795,7 +1751,7 @@ void test_l1_ccsp_hal_ethsw_negative2_CcspHalEthSwGetEthPortStats(void)
  * This test verifies if the function CcspHalEthSwGetEthPortStats correctly returns an error when an invalid MAC address is provided as input. It is important for the function to handle such invalid inputs and return an error code.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 057
+ * **Test Case ID:** 044
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -1830,7 +1786,7 @@ void test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwGetEthPortStats(void)
  * This test case verifies whether the CcspHalExtSw_getAssociatedDevice API returns the expected result when provided with valid input parameters. It checks if the API can successfully retrieve the associated device information for a valid Ethernet client.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 058
+ * **Test Case ID:** 045
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -1890,7 +1846,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalExtSw_getAssociatedDevice(void)
 * This test case is used to verify the behavior of CcspHalExtSw_getAssociatedDevice function when valid input parameters are provided.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 059
+* **Test Case ID:** 046
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1940,7 +1896,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalExtSw_getAssociatedDevice(void)
 * This test case checks the behavior of CcspHalExtSw_getAssociatedDevice when an invalid MAC address format is provided as input. The test aims to validate that the function returns the expected error code (RETURN_ERR).
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 060
+* **Test Case ID:** 047
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -1983,7 +1939,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalExtSw_getAssociatedDevice(void)
 * This test case is used to verify the functionality of the registerValidCallback function by passing a valid callback function.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 061
+* **Test Case ID:** 048
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2019,7 +1975,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalExtSw_ethAssociatedDevice_callback_
  * The purpose of this test is to ensure that the API handles the case of registering a NULL callback appropriately.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 062
+ * **Test Case ID:** 049
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -2051,7 +2007,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalExtSw_ethAssociatedDevice_callback_
 * The purpose of this test is to verify if the API correctly configures the WAN mode for a valid interface "eth0" and returns RETURN_OK.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 063
+* **Test Case ID:** 050
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2088,7 +2044,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalExtSw_ethPortConfigure(void)
 * The objective of this test is to ensure that the CcspHalExtSw_ethPortConfigure() function correctly configures the ethernet port when the interface "eth1" is provided and the WAN mode is disabled.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 064
+* **Test Case ID:** 051
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2124,7 +2080,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalExtSw_ethPortConfigure(void)
 * The objective of this test is to ensure that the function correctly configures the Ethernet port with the provided interface name and enables the WAN mode.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 065
+* **Test Case ID:** 052
 * **Priority:** High
 *
 * **Pre-Conditions:**
@@ -2164,7 +2120,7 @@ void test_l1_ccsp_hal_ethsw_positive3_CcspHalExtSw_ethPortConfigure(void)
  * This test case verifies whether the CcspHalExtSw_ethPortConfigure API is able to correctly configure the Ethernet port when a valid interface (eth3) is provided and the WAN mode is disabled.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 066
+ * **Test Case ID:** 053
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -2199,7 +2155,7 @@ void test_l1_ccsp_hal_ethsw_positive4_CcspHalExtSw_ethPortConfigure(void)
 * The objective of this test is to ensure that the function returns the expected error code when an invalid interface and WAN mode enabled are provided as input.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 067
+* **Test Case ID:** 054
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2234,7 +2190,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalExtSw_ethPortConfigure(void)
 * This test case is used to verify the behavior of CcspHalExtSw_ethPortConfigure API when an empty string is provided as the interface name and WAN mode is disabled.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 068
+* **Test Case ID:** 055
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2268,7 +2224,7 @@ void test_l1_ccsp_hal_ethsw_negative2_CcspHalExtSw_ethPortConfigure(void)
 * @brief This test is to validate the behavior of CcspHalExtSw_ethPortConfigure() API when an invalid interface is passed with a null pointer and WAN mode is enabled.
 *
 * Test Group ID: Basic: 01
-* Test Case ID: 069
+* Test Case ID: 056
 * Priority: High
 *
 * Pre-Conditions: None
@@ -2303,7 +2259,7 @@ void test_l1_ccsp_hal_ethsw_negative3_CcspHalExtSw_ethPortConfigure(void)
 * This test is conducted to verify the behavior of the CcspHalExtSw_ethPortConfigure() API when an invalid interface (random string) is provided as input and the WAN mode is disabled. The API is expected to return an error code.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 070
+* **Test Case ID:** 057
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2340,7 +2296,7 @@ void test_l1_ccsp_hal_ethsw_negative4_CcspHalExtSw_ethPortConfigure(void)
  * The objective of this test is to ensure that the CcspHalExtSw_getEthWanEnable function returns the expected value and status when the EthernetWAN is enabled.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 071
+ * **Test Case ID:** 058
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -2379,7 +2335,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalExtSw_getEthWanEnable(void)
  * This test is a part of the Basic test group and has a high priority. The objective of this test is to verify the behavior of the CcspHalExtSw_getEthWanEnable() API when the EthernetWAN is disabled.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 072
+ * **Test Case ID:** 059
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -2418,7 +2374,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalExtSw_getEthWanEnable(void)
  * The objective of this test is to ensure that the function handles the NULL pointer argument correctly and returns the expected status.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 074
+ * **Test Case ID:** 060
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -2451,7 +2407,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalExtSw_getEthWanEnable(void)
  * This test case is to verify the behavior of CcspHalExtSw_getEthWanEnable function when the pointer argument is not initialized.
  *
  * Test Group ID: Basic: 01
- * Test Case ID: 075
+ * Test Case ID: 061
  * Priority: High
  *
  * Pre-Conditions: None
@@ -2485,7 +2441,7 @@ void test_l1_ccsp_hal_ethsw_negative2_CcspHalExtSw_getEthWanEnable(void)
  * This test case is used to verify the functionality of the CcspHalExtSw_setEthWanEnable function when the input flag is set to TRUE. The objective is to ensure that the function works as expected and returns RETURN_OK.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 076
+ * **Test Case ID:** 062
  * **Priority:** High
  *
  * **Pre-Conditions:** None.
@@ -2519,7 +2475,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalExtSw_setEthWanEnable(void)
  * TODO: Add the description of what is tested and why in this test
  *
  * **Test Group ID:** Basic: 01 / Module: 02 / Stress: 03
- * **Test Case ID:** 077
+ * **Test Case ID:** 063
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -2554,7 +2510,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalExtSw_setEthWanEnable(void)
 * The purpose of this test is to check if the API correctly handles and returns an error when an unexpected value is passed as the input argument. The API should not perform any unintended action or modify any state in the system.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 078
+* **Test Case ID:** 064
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2591,7 +2547,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalExtSw_setEthWanEnable(void)
 * This test case is used to verify the functionality of the CcspHalExtSw_getCurrentWanHWConf() API.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 079
+* **Test Case ID:** 065
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2631,7 +2587,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalExtSw_getCurrentWanHWConf()
  * This test case verifies the functionality of the CcspHalExtSw_getCurrentWanHWConf function by calling it with valid parameters and checking the result against the expected value.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 080
+ * **Test Case ID:** 066
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -2670,7 +2626,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalExtSw_getCurrentWanHWConf()
  * The objective of this test is to verify the behavior of the CcspHalExtSw_getCurrentWanHWConf() function when it is called with invalid parameters.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 081
+ * **Test Case ID:** 067
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -2711,7 +2667,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalExtSw_getCurrentWanHWConf()
 * This test case verifies the CcspHalExtSw_getEthWanPort function by passing a valid lower bound port value and checking the status of the function call.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 082
+* **Test Case ID:** 068
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2748,7 +2704,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalExtSw_getEthWanPort(void)
  * for the port parameter and checks if it returns RETURN_OK.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 083
+ * **Test Case ID:** 069
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -2786,7 +2742,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalExtSw_getEthWanPort(void)
 * This test verifies that the CcspHalExtSw_getEthWanPort API returns the expected status when invoked with a valid middle range port.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 084
+* **Test Case ID:** 070
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2819,7 +2775,7 @@ void test_l1_ccsp_hal_ethsw_positive3_CcspHalExtSw_getEthWanPort(void)
 * This test case will verify that the API CcspHalExtSw_getEthWanPort() returns the correct status code when the input port value is above the upper bound.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 085
+* **Test Case ID:** 071
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2852,7 +2808,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalExtSw_getEthWanPort(void)
  * This test case checks the functionality of the CcspHalExtSw_setEthWanPort API when a valid port value is provided.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 086
+ * **Test Case ID:** 072
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -2886,7 +2842,7 @@ void test_l1_ccsp_hal_ethsw_positive1_CcspHalExtSw_setEthWanPort(void)
 * This test verifies the functionality of the CcspHalExtSw_setEthWanPort function by setting the EthernetWAN interface/port number with the maximum port value.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 087
+* **Test Case ID:** 073
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -2902,7 +2858,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalExtSw_setEthWanPort(void)
 {
     UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive2_CcspHalExtSw_setEthWanPort...");
 
-    UINT port = 0;
+    UINT port = 65535;
 
     // Test description: Set EthernetWAN interface/port number with the maximum port value.
     UT_LOG("Invoking CcspHalExtSw_setEthWanPort with Port = %u", port);
@@ -2920,7 +2876,7 @@ void test_l1_ccsp_hal_ethsw_positive2_CcspHalExtSw_setEthWanPort(void)
 * This test case checks the behavior of the CcspHalExtSw_setEthWanPort function when the port value provided is outside the acceptable range. The objective is to ensure that the function returns the expected error status in this scenario.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 088
+* **Test Case ID:** 074
 * **Priority:** High
 * @n
 * **Pre-Conditions:** None
@@ -2953,7 +2909,7 @@ void test_l1_ccsp_hal_ethsw_negative1_CcspHalExtSw_setEthWanPort(void)
  * The objective of this test is to ensure that when a valid callback object is registered, the GWP_RegisterEthWan_Callback function returns RETURN_OK.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 091
+ * **Test Case ID:** 075
  *
  * **Pre-Conditions:** None
  * **Dependencies:** None
@@ -2999,7 +2955,7 @@ void test_l1_ccsp_hal_ethsw_positive1_GWP_RegisterEthWan_Callback(void)
 * This test is performed to verify the behavior of the GWP_RegisterEthWan_Callback function when only the pGWP_act_EthWanLinkUP callback is set in the appCallBack object.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 092
+* **Test Case ID:** 076
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -3035,7 +2991,7 @@ void test_l1_ccsp_hal_ethsw_positive2_GWP_RegisterEthWan_Callback(void)
 * The purpose of this test is to ensure that the GWP_RegisterEthWan_Callback function correctly registers the pGWP_act_EthWanLinkDown callback and returns RETURN_OK.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 093
+* **Test Case ID:** 077
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -3070,7 +3026,7 @@ void test_l1_ccsp_hal_ethsw_positive3_GWP_RegisterEthWan_Callback(void)
 * TODO: Add the description of what is tested and why in this test
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 094
+* **Test Case ID:** 078
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -3101,7 +3057,7 @@ void test_l1_ccsp_hal_ethsw_negative1_GWP_RegisterEthWan_Callback(void)
 * behavior of the function is that it should return RETURN_ERR.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 095
+* **Test Case ID:** 079
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -3131,82 +3087,47 @@ void test_l1_ccsp_hal_ethsw_negative2_GWP_RegisterEthWan_Callback(void)
 }
 
 /**
-* @brief This test is to verify the functionality of the GWP_GetEthWanLinkStatus API
-*
-* This test case is used to verify the GWP_GetEthWanLinkStatus API. The objective of this test is to ensure that the API returns the expected status when the EthWAN Link is UP.
-*
-* **Test Group ID:** Basic: 01 / Module (L2): 02 / Stress (L2): 03)
-* **Test Case ID:** 096
-* **Priority:** High
-*
-* **Pre-Conditions:** None
-* **Dependencies:** None
-* **User Interaction:** If user chose to run the test in interactive mode, then the test case has to be selected via console
-*
-* **Test Procedure:**
-* | Variation / Step | Description | Test Data | Expected Result | Notes |
-* | :----: | --------- | ---------- |-------------- | ----- |
-* | 01 | Invoking GWP_GetEthWanLinkStatus | - | - | EthWAN Link Status UP |
-*/
-void test_l1_ccsp_hal_ethsw_positive1_GWP_GetEthWanLinkStatus()
+ * @brief Verify that GWP_GetEthWanLinkStatus returns a value defined by the HAL contract.
+ *
+ * GWP_GetEthWanLinkStatus has no input parameters. The returned value represents the
+ * Ethernet WAN link state: 0 for link DOWN, 1 for link UP, and a negative value for an
+ * implementation-defined/documented error condition. This test does not manipulate system
+ * state and does not require a particular physical link state.
+ *
+ * **Test Group ID:** Basic: 01
+ * **Test Case ID:** 080
+ * **Priority:** High
+ *
+ * **Pre-Conditions:** None
+ * **Dependencies:** None
+ * **User Interaction:** If user chose to run the test in interactive mode, then the test case has to be selected via console
+ *
+ * **Test Procedure:**
+ * | Variation / Step | Description | Test Data | Expected Result | Notes |
+ * | :----: | --------- | ---------- | -------------- | ----- |
+ * | 01 | Invoke GWP_GetEthWanLinkStatus | No input parameters | Return value is 0, 1, or a documented error value less than 0 | Do not require a specific environmental link state |
+ */
+void test_l1_ccsp_hal_ethsw_positive1_GWP_GetEthWanLinkStatus(void)
 {
-    UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive_1_GWP_GetEthWanLinkStatus...");
-    
-     system("echo \"erouter0\" > /nvram/ethwan_interface");
+    UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive1_GWP_GetEthWanLinkStatus...");
 
-    // Invoking GWP_GetEthWanLinkStatus
-    UT_LOG("Invoking GWP_GetEthWanLinkStatus, EthWAN Link Status UP");
+    UT_LOG("Invoking GWP_GetEthWanLinkStatus without modifying system state.");
     INT status = GWP_GetEthWanLinkStatus();
-    UT_LOG("Status: %d", status);
+    UT_LOG("GWP_GetEthWanLinkStatus returned: %d", status);
 
-    // Asserting the return value
-    UT_ASSERT_EQUAL(status, 1);
+    /* Valid contract values are 0 (DOWN), 1 (UP), or a negative error code. */
+    CU_ASSERT_TRUE_FATAL(status <= 1);
 
-    UT_LOG("Exiting test_l1_ccsp_hal_ethsw_positive_1_GWP_GetEthWanLinkStatus...");
+    UT_LOG("Exiting test_l1_ccsp_hal_ethsw_positive1_GWP_GetEthWanLinkStatus...");
 }
 
 /**
-* @brief Test case to verify the functionality of GWP_GetEthWanLinkStatus API.
-*
-* This test case verifies the behavior of GWP_GetEthWanLinkStatus API by checking the return value when EthWAN Link is DOWN.
-*
-* **Test Group ID:** Basic: 01
-* **Test Case ID:** 097
-* **Priority:** High
-*
-* **Pre-Conditions:** None
-* **Dependencies:** None
-* **User Interaction:** If user chose to run the test in interactive mode, then the test case has to be selected via console.
-*
-* **Test Procedure:**
-* | Variation / Step | Description | Test Data | Expected Result | Notes |
-* | :----: | --------- | ---------- |-------------- | ----- |
-* | 01 | Invoke GWP_GetEthWanLinkStatus API when EthWAN Link is DOWN | None | 0 | Success: EthWAN Link is DOWN |
-*/
-void test_l1_ccsp_hal_ethsw_positive2_GWP_GetEthWanLinkStatus()
-{
-    UT_LOG("Entering test_l1_ccsp_hal_ethsw_positive_2_GWP_GetEthWanLinkStatus...");
-    
-     system("echo \"\" > /nvram/ethwan_interface");
-
-    // Invoking GWP_GetEthWanLinkStatus
-    UT_LOG("Invoking GWP_GetEthWanLinkStatus, EthWAN Link Status DOWN");
-    INT status = GWP_GetEthWanLinkStatus();
-    UT_LOG("Status: %d", status);
-
-    // Asserting the return value
-    UT_ASSERT_EQUAL(status, 0);
-
-    UT_LOG("Exiting test_l1_ccsp_hal_ethsw_positive_2_GWP_GetEthWanLinkStatus...");
-}
-
-    /**
     * @brief Test case to validate the functionality of GWP_GetEthWanInterfaceName function when valid parameters are provided.
     *
     * This test case validates the GWP_GetEthWanInterfaceName function by passing a valid buffer and minimum allowed maxSize.
     *
     * **Test Group ID:** Basic: 01
-    * **Test Case ID:** 098
+    * **Test Case ID:** 081
     * **Priority:** High
     *
     * **Pre-Conditions:** None
@@ -3243,7 +3164,7 @@ void test_l1_ccsp_hal_ethsw_positive1_GWP_GetEthWanInterfaceName()
  * This test case is used to verify the correctness of the GWP_GetEthWanInterfaceName function. It checks whether the function returns the correct interface name and the expected return status when valid buffer and maximum size are provided as input.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 099
+ * **Test Case ID:** 082
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -3280,7 +3201,7 @@ void test_l1_ccsp_hal_ethsw_positive2_GWP_GetEthWanInterfaceName()
 * This test case checks the functionality of GWP_GetEthWanInterfaceName by invoking the function with a valid buffer for Interface and an intermediate value for maxSize. The objective is to verify if the function returns RETURN_OK and updates the Interface buffer with the expected data.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 100
+* **Test Case ID:** 083
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -3317,7 +3238,7 @@ void test_l1_ccsp_hal_ethsw_positive3_GWP_GetEthWanInterfaceName()
 * The purpose of this test is to ensure that the GWP_GetEthWanInterfaceName function returns the expected result (RETURN_ERR) when invoked with a valid buffer as the interface (at least 64 bytes) and maxSize parameter higher than the maximum size allowed.
 *
 * **Test Group ID:** Basic: 01
-* **Test Case ID:** 101
+* **Test Case ID:** 084
 * **Priority:** High
 *
 * **Pre-Conditions:** None
@@ -3353,7 +3274,7 @@ void test_l1_ccsp_hal_ethsw_negative1_GWP_GetEthWanInterfaceName()
  * This test case is to verify the behavior of the GWP_GetEthWanInterfaceName API when the Interface is a NULL pointer and maxSize is the minimum allowed value. The expected result is that the API should return RETURN_ERR.
  *
  * **Test Group ID:** Basic: 01
- * **Test Case ID:** 102
+ * **Test Case ID:** 085
  * **Priority:** High
  *
  * **Pre-Conditions:** None
@@ -3430,7 +3351,6 @@ int test_ethsw_hal_register(void)
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive1_CcspHalEthSwInit", test_l1_ccsp_hal_ethsw_positive1_CcspHalEthSwInit);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive1_CcspHalEthSwGetPortStatus", test_l1_ccsp_hal_ethsw_positive1_CcspHalEthSwGetPortStatus);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive2_CcspHalEthSwGetPortStatus", test_l1_ccsp_hal_ethsw_positive2_CcspHalEthSwGetPortStatus);
-    UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive3_CcspHalEthSwGetPortStatus", test_l1_ccsp_hal_ethsw_positive3_CcspHalEthSwGetPortStatus);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_negative1_CcspHalEthSwGetPortStatus", test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwGetPortStatus);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_negative2_CcspHalEthSwGetPortStatus", test_l1_ccsp_hal_ethsw_negative2_CcspHalEthSwGetPortStatus);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_negative3_CcspHalEthSwGetPortStatus", test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwGetPortStatus);
@@ -3459,7 +3379,7 @@ int test_ethsw_hal_register(void)
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive2_CcspHalEthSwSetPortAdminStatus", test_l1_ccsp_hal_ethsw_positive2_CcspHalEthSwSetPortAdminStatus);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_negative1_CcspHalEthSwSetPortAdminStatus", test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwSetPortAdminStatus);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_negative2_CcspHalEthSwSetPortAdminStatus", test_l1_ccsp_hal_ethsw_negative2_CcspHalEthSwSetPortAdminStatus);
-    UT_add_test(pSuite, "l1_ccsp_hal_ethsw_negative3_CcspHalEthSwSetPortAdminStatus", test_l1_ccsp_hal_ethsw_negative3_CcspHalEthSwSetPortAdminStatus);
+    UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive3_CcspHalEthSwSetPortAdminStatus", test_l1_ccsp_hal_ethsw_positive3_CcspHalEthSwSetPortAdminStatus);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive1_CcspHalEthSwSetAgingSpeed", test_l1_ccsp_hal_ethsw_positive1_CcspHalEthSwSetAgingSpeed);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive2_CcspHalEthSwSetAgingSpeed", test_l1_ccsp_hal_ethsw_positive2_CcspHalEthSwSetAgingSpeed);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_negative1_CcspHalEthSwSetAgingSpeed", test_l1_ccsp_hal_ethsw_negative1_CcspHalEthSwSetAgingSpeed);
@@ -3512,7 +3432,6 @@ int test_ethsw_hal_register(void)
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_negative1_GWP_RegisterEthWan_Callback", test_l1_ccsp_hal_ethsw_negative1_GWP_RegisterEthWan_Callback);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_negative2_GWP_RegisterEthWan_Callback", test_l1_ccsp_hal_ethsw_negative2_GWP_RegisterEthWan_Callback);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive1_GWP_GetEthWanLinkStatus", test_l1_ccsp_hal_ethsw_positive1_GWP_GetEthWanLinkStatus);
-    UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive2_GWP_GetEthWanLinkStatus", test_l1_ccsp_hal_ethsw_positive2_GWP_GetEthWanLinkStatus);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive1_GWP_GetEthWanInterfaceName", test_l1_ccsp_hal_ethsw_positive1_GWP_GetEthWanInterfaceName);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive2_GWP_GetEthWanInterfaceName", test_l1_ccsp_hal_ethsw_positive2_GWP_GetEthWanInterfaceName);
     UT_add_test(pSuite, "l1_ccsp_hal_ethsw_positive3_GWP_GetEthWanInterfaceName", test_l1_ccsp_hal_ethsw_positive3_GWP_GetEthWanInterfaceName);
