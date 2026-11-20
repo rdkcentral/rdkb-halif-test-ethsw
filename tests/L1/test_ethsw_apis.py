@@ -86,24 +86,47 @@ def _check(result, case_type, expected_status, context):
 
 @contextmanager
 def _restore_port_state(raft_env, get_api, set_api, port_id, fields):
-    """Save per-port state before a SET and restore it afterwards.
+    """
+    Save per-port state before a SET and restore it afterwards.
 
     fields maps SET parameter names to GET response fields. Ports the HAL
     rejects have no state to save, so nothing is restored for them.
     """
-    snapshot = run(COMPONENT, raft_env, get_api, parameters={"PortId": port_id})
+    snapshot = run(
+        COMPONENT,
+        raft_env,
+        get_api,
+        parameters={"PortId": port_id}
+    )
+
     saved = None
+
+    if port_id in VALID_PORTS:
+        _check(snapshot, "snapshot", 0,
+               f"{get_api}: PortId={port_id}")
+
     if snapshot["returncode"] == 0 and _status(snapshot) == 0:
-        saved = {name: field(snapshot["output"], source) for name, source in fields.items()}
+        saved = {
+            name: field(snapshot["output"], source)
+            for name, source in fields.items()
+        }
+
     try:
         yield
     finally:
         if saved is not None:
-            restored = run(COMPONENT, raft_env, set_api,
-                           parameters={"PortId": port_id, **saved})
-            assert_equal(_status(restored), 0, "restore status",
-                         f"{set_api}: port={port_id}; saved={saved}")
-
+            restored = run(
+                COMPONENT,
+                raft_env,
+                set_api,
+                parameters={"PortId": port_id, **saved}
+            )
+            assert_equal(
+                _status(restored),
+                0,
+                "restore status",
+                f"{set_api}: port={port_id}; saved={saved}"
+            )
 
 @contextmanager
 def _restore_wan_state(raft_env):
@@ -305,7 +328,8 @@ def test_08_ethsw_locate_port_by_mac(
                      output_pointer=_pointer(output_pointer))
     _check(result, case_type, expected_status, f"mac={mac!r}, output_pointer={output_pointer}")
     if case_type == "valid":
-        assert field(result["output"], "port") >= 1, f"Located port must be 1-based: {result}"
+        assert 0 <= field(result["output"], "port") <= 4, \
+            f"Located port must be 0 (MoCA) or 1-4 (Ethernet): {result}"
 
 
 

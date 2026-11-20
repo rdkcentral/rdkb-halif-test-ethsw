@@ -49,8 +49,10 @@ def readable_timestamp(value):
 def redact(text):
     text = str(text)
     text = re.sub('(?i)("(?:password|passwd|token|secret|authorization)"\\s*:\\s*)"(?:\\\\.|[^"\\\\])*"', '\\1"[REDACTED]"', text)
-    text = re.sub(r"(?i)(password|passwd|token|secret|authorization)([\"\x27]?\s*[:=]\s*)([^\s,;]+)",
-                  r"\1\2[REDACTED]", text)
+    text = re.sub(
+    r'''(?i)(password|passwd|token|secret|authorization)(["']?\s*[:=]\s*)(?:"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|(?:Bearer|Basic)[ \t]+[^\s,;]+|[^\s,;]+)''',
+    r"\1\2[REDACTED]",
+    text)
     return re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", text)
  
  

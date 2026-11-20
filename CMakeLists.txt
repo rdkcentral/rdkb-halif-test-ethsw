@@ -77,6 +77,11 @@ else()
         dispatcher/include
     )
 
+    target_compile_definitions(ethsw_hal PUBLIC
+        FEATURE_RDKB_WAN_MANAGER
+        FEATURE_RDKB_AUTO_PORT_SWITCH
+    )
+
     target_compile_options(ethsw_hal PRIVATE
         -Wall
         -Wextra
